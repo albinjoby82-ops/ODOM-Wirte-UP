@@ -56,7 +56,7 @@ One data wire from the BNO085 to GPIO 8, plus power and ground. P0 selects RVC m
 
 ![Four TMF8821 sensors daisy-chained over Qwiic from the ESP32-S3, each with its own enable line](img/02-tof-chain.jpg)
 
-Four TMF8821s on one Qwiic chain, each with its own enable wire (front, right, left, rear on GPIO 11, 12, 13, 14). All four boot at `0x41`, so they are enabled one at a time and given new addresses. The enable pin is not on the Qwiic connector, so one wire is soldered to each sensor's EN pad. I²C pull-ups are left on for one board only.
+Four TMF8821s on one Qwiic chain, each with its own enable wire (front, right, left, rear on GPIO 11, 12, 13, 14). All four boot at `0x41`, so they are enabled one at a time and given new addresses. The enable pin is not on the Qwiic connector, so one wire is soldered to each sensor's EN pad. I²C pull-ups are left on for one board only. All four sensors worked on the breadboard with this firmware.
 
 ### RS-485 link
 
