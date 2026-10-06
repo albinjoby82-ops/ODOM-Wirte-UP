@@ -32,3 +32,8 @@ The V1 firmware is Ronan's `gaelforce_esp32` at commit [`f138950`](https://githu
 ## What it taught us
 
 The problem was never the parts or the schematic. It was the pin layout. That led to V2, which starts from where the cables leave the board and groups the pins to match.
+
+## Design files
+
+- [Gerbers and drill files](../hardware/v1/gerbers.zip), as sent to the board maker.
+- [KiCad project folder](../hardware/v1/): the schematic, project file and custom symbol and footprint libraries.
