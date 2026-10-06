@@ -9,6 +9,7 @@ This repo holds the narrative write-up. The operations team will turn it into a 
 | # | Section | Status |
 |---|---------|--------|
 | 1 | [Why These Components](docs/01-component-rationale.md) | Draft |
+| 2 | [What We Built on the Breadboard](docs/02-breadboard-firmware.md) | Draft |
 
 More sections will be added to this table as the story grows.
 
