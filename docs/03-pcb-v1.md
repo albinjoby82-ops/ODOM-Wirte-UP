@@ -35,5 +35,10 @@ The problem was never the parts or the schematic. It was the pin layout. That le
 
 ## Design files
 
+[![The V1 schematic: the ESP32-S3 dev board, a level converter with series resistors on the four encoder lines, the IMU breakout, and single-pin connectors for the off-board wires](img/03-pcb-v1-schematic.png)](../hardware/v1/ODOM-V1-schematic.pdf)
+
+The V1 schematic. It has the ESP32-S3 dev board, the level converter with series resistors on the four encoder lines, the IMU breakout, and a single-pin connector for each off-board wire. Click the image for the PDF.
+
+- [Schematic (PDF)](../hardware/v1/ODOM-V1-schematic.pdf)
 - [Gerbers and drill files](../hardware/v1/gerbers.zip), as sent to the board maker.
 - [KiCad project folder](../hardware/v1/): the schematic, project file and custom symbol and footprint libraries.
