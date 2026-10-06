@@ -94,6 +94,7 @@ A 5-second clip of the breadboard being worked on, with the firmware's console o
 |---|---|
 | Firmware | [`ODOM-CODE` at `f9613c0`](https://github.com/albinjoby82-ops/ODOM-CODE/tree/f9613c0) (Ronan Hawkins, Sep 12) |
 | Same code, original repo | [`gaelforce_esp32` at `f9613c0`](https://github.com/ronanhawkins/gaelforce_esp32/tree/f9613c0) |
+| Copy in this repo | [`code/breadboard/`](../code/breadboard/) |
 | Pin numbers | `include/pod_config.hpp` |
 | Main loop | `src/main.cpp` |
 | ToF bring-up and filtering | `src/tof_array.cpp` |

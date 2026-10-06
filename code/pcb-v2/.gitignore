@@ -1,0 +1,8 @@
+.pio/
+.cache/
+.clangd
+sdkconfig.pod
+dependencies.lock
+compile_commands.json
+.DS_Store
+/docs/

@@ -14,6 +14,14 @@ This repo holds the narrative write-up. The operations team will turn it into a 
 
 More sections will be added to this table as the story grows.
 
+## What's in the repo
+
+| Folder | What |
+|---|---|
+| [`docs/`](docs/) | The write-up, one numbered file per section, with images in `docs/img/` and clips in `docs/media/` |
+| [`hardware/`](hardware/) | KiCad design files, Gerbers and PDFs for each PCB version |
+| [`code/`](code/) | The pod firmware at each stage: breadboard, PCB V1 and PCB V2 |
+
 ## The story in one paragraph
 
 The V5 brain is a good motor controller but a poor sensor platform. The ODOM POD moves sensing and pose estimation onto an ESP32-S3 and sends pose to the V5 as a pure sensor source. Motion control stays on the V5.
