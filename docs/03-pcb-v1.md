@@ -35,6 +35,10 @@ The problem was never the parts or the schematic. It was the pin layout. That le
 
 ## Design files
 
+![A 3D render of the V1 board from KiCad: the ESP32-S3 dev board footprint on the left, the IMU breakout at the top right, the level converter and four resistors in the middle, and single-pin connectors around the edges](img/03-pcb-v1-3d.png)
+
+A 3D render of the V1 board from KiCad. The ESP32-S3 dev board sits on the left, the IMU breakout at the top right, and the level converter and the four series resistors in the middle. The single-pin connectors are scattered around the edges and the corners.
+
 [![The V1 schematic: the ESP32-S3 dev board, a level converter with series resistors on the four encoder lines, the IMU breakout, and single-pin connectors for the off-board wires](img/03-pcb-v1-schematic.png)](../hardware/v1/ODOM-V1-schematic.pdf)
 
 The V1 schematic. It has the ESP32-S3 dev board, the level converter with series resistors on the four encoder lines, the IMU breakout, and a single-pin connector for each off-board wire. Click the image for the PDF.
