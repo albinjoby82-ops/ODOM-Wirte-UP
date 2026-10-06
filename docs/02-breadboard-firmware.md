@@ -36,6 +36,36 @@ Notes on the wiring:
 - The ToF enable pins are in harness order, not numeric order.
 - GPIO 0/45/46, 19/20, 26-37 and 48 are not used on this module (strapping, USB, flash, PSRAM and the on-board LED).
 
+## Circuit diagrams
+
+The breadboard was wired from these four diagrams.
+
+### Encoders
+
+![Two AMT102-V encoders into an SN74LVC245A level converter, through 33 ohm resistors, to four ESP32-S3 GPIOs](img/02-encoder-wiring.jpg)
+
+The 5 V encoder outputs go through the SN74LVC245A to 3.3 V logic, with a 33 Ω resistor in each line. The encoders get their 5 V from the robot rail, not from the level converter. The unused B5-B8 inputs are tied to ground, and OE is tied low.
+
+### IMU
+
+![BNO085 in UART-RVC mode wired to ESP32-S3 GPIO 8, with its mode pins tied off](img/02-imu-wiring.jpg)
+
+One data wire from the BNO085 to GPIO 8, plus power and ground. P0 selects RVC mode, so it is tied to 3.3 V, or bridged with the solder jumper on the back of the Adafruit breakout. The mode pins are only read at reset, so the BNO085 has to be power-cycled, not just the ESP32.
+
+### ToF sensors
+
+![Four TMF8821 sensors daisy-chained over Qwiic from the ESP32-S3, each with its own enable line](img/02-tof-chain.jpg)
+
+Four TMF8821s on one Qwiic chain, each with its own enable wire (front, right, left, rear on GPIO 11, 12, 13, 14). All four boot at `0x41`, so they are enabled one at a time and given new addresses. The enable pin is not on the Qwiic connector, so one wire is soldered to each sensor's EN pad. I²C pull-ups are left on for one board only.
+
+### RS-485 link
+
+![ESP32-S3 to SP3485 transceiver to the V5 smart port, with board notes on termination and bias](img/02-rs485-wiring.jpg)
+
+The ESP32's UART drives an SP3485 transceiver, which connects to the V5 smart port's two differential lines. The 5 V line on the smart port is not connected, but the cable ground is, because RS-485 needs the common reference.
+
+**Check against the pin table.** The encoder and ToF I²C pins in these diagrams differ from the pin table above, which comes from the flashed code. The diagrams show the horizontal encoder on GPIO 4/5 (the table has 3/4), and SDA/SCL on GPIO 15/16 (the table has 16/15).
+
 ## Key settings
 
 | Setting | Value |
