@@ -6,7 +6,7 @@ Every choice in this pod traces back to one split: sensing lives on an ESP32-S3,
 
 The V5 simply can't host these sensors well. Smart ports run a closed RS-485 protocol, the brain exposes no user I²C/SPI/UART for a BNO085 or TMF8821s, and the ADI 3-wire quadrature path was designed around 360 CPR encoders — it drops counts once you're running 8192 CPR. Even where the brain *can* read a sensor, the read itself is a problem: smart-port devices are polled on the same bus as motor commands, with a 10 ms default and a 5 ms floor, so the data a controller sees is stale and jittery by the time it arrives. On the ESP32, an encoder read is a direct register access, the IMU is a timestamped 100 Hz stream, and dt is known exactly rather than inferred.
 
-That precision needs somewhere to run without interference. Core 0 on the ESP32 handles all I/O; Core 1 runs the math, including 200 Hz MCL prediction, with nothing from the PROS scheduler competing for cycles.
+That precision needs somewhere to run without interference. Core 0 on the ESP32 handles all I/O; Core 1 runs the math, including 200 Hz MCL prediction, with nothing from the PROS scheduler competing for cycles. That two-core split is the design intent. The first breadboard build runs everything in one task at 100 Hz, which was enough to prove the sensors and the link.
 
 None of this makes the V5 obsolete as a pose source — it was never one. The brain carries no IMU and no tracking encoders of its own. `LinkPoseSource` is its only pose source, and the custom PROS motion code consumes it through `IPoseSource`, which is why `runMotion` gates on `healthy()`, staleness, and `bootId` — it has to assume the link can go bad.
 
@@ -16,7 +16,7 @@ It's worth being honest about what this buys and doesn't buy. End-to-end latency
 
 ## Why the ESP32-S3 Specifically
 
-The S3 has hardware quadrature decoding (PCNT) and two cores that map directly onto the I/O / math split the design needs. It also brings three UARTs (console, BNO085, RS-485), ESP-IDF/FreeRTOS, 8 MB of PSRAM, and comes as a cheap, compact module — no exotic sourcing.
+The S3 has hardware quadrature decoding (PCNT) and two cores that map directly onto the I/O / math split the design needs. It also brings three UARTs (console, BNO085, RS-485), ESP-IDF/FreeRTOS, and comes as a cheap, compact module — no exotic sourcing. The N8R8 module has 8 MB of PSRAM, but the build leaves it off: the particle filter is only about 19 KB and runs faster in internal SRAM.
 
 The alternatives were rejected for concrete reasons, not vibes:
 
