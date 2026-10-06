@@ -6,22 +6,22 @@ When the parts arrived, we wired every component from section 1 onto a breadboar
 
 The firmware reads the two AMT102-V encoders (through the level converter), the BNO085 IMU, and the four TMF8821 ToF sensors. It runs a 300-particle Monte Carlo localization filter and sends the resulting pose to the V5 brain over RS-485 every 10 ms (100 Hz). The brain replies with its status, and the pod uses that reply to measure round-trip time and to stop trusting ToF readings while the robot is driving hard. The pod drives nothing. It only reports pose.
 
-Everything runs in a single task, and the firmware prints its own timing, link and per-sensor diagnostics about once a second. A separate bench test (`tools/tof_test`) brings up the four ToF sensors one stage at a time and streams live distances, so each can be checked on its own.
+Everything runs in a single task, and the firmware prints its own timing, link and per-sensor diagnostics about once a second.
 
-## Pin map (breadboard, V1)
+## Pin map (breadboard)
 
 | Function | Signal | GPIO |
 |---|---|---|
 | Vertical encoder | A | 1 |
 | Vertical encoder | B | 2 |
-| Horizontal encoder | A | 3 |
-| Horizontal encoder | B | 4 |
+| Horizontal encoder | A | 4 |
+| Horizontal encoder | B | 5 |
 | IMU (BNO085, UART-RVC) | RX | 8 |
 | RS-485 | TX (DI) | 17 |
 | RS-485 | RX (RO) | 18 |
 | RS-485 | DE + RE (tied) | 21 |
-| ToF I²C (all 4 sensors) | SDA | 16 |
-| ToF I²C (all 4 sensors) | SCL | 15 |
+| ToF I²C (all 4 sensors) | SDA | 15 |
+| ToF I²C (all 4 sensors) | SCL | 16 |
 | ToF enable | Front | 11 |
 | ToF enable | Right | 12 |
 | ToF enable | Rear | 14 |
@@ -64,8 +64,6 @@ Four TMF8821s on one Qwiic chain, each with its own enable wire (front, right, l
 
 The ESP32's UART drives an SP3485 transceiver, which connects to the V5 smart port's two differential lines. The 5 V line on the smart port is not connected, but the cable ground is, because RS-485 needs the common reference.
 
-**Check against the pin table.** The encoder and ToF I²C pins in these diagrams differ from the pin table above, which comes from the flashed code. The diagrams show the horizontal encoder on GPIO 4/5 (the table has 3/4), and SDA/SCL on GPIO 15/16 (the table has 16/15).
-
 ## Key settings
 
 | Setting | Value |
@@ -84,14 +82,16 @@ The ESP32's UART drives an SP3485 transceiver, which connects to the V5 smart po
 
 | What | Where |
 |---|---|
-| Firmware | [`ODOM-CODE` at `5a9fc94`](https://github.com/albinjoby82-ops/ODOM-CODE/tree/5a9fc94) |
-| Same code, original repo | [`gaelforce_esp32`](https://github.com/ronanhawkins/gaelforce_esp32), Ronan's `main` (`f138950`) plus the ToF fix and bench test (`5a9fc94`, from PR #1) |
-| Pin numbers | `include/pod_config.hpp` (V1 pins, not the PCB's) |
+| Firmware | [`ODOM-CODE` at `f9613c0`](https://github.com/albinjoby82-ops/ODOM-CODE/tree/f9613c0) (Ronan Hawkins, Sep 12) |
+| Same code, original repo | [`gaelforce_esp32` at `f9613c0`](https://github.com/ronanhawkins/gaelforce_esp32/tree/f9613c0) |
+| Pin numbers | `include/pod_config.hpp` |
 | Main loop | `src/main.cpp` |
 | ToF bring-up and filtering | `src/tof_array.cpp` |
-| ToF bench test | `tools/tof_test/` |
+| ToF SPAD mask | `tools/tmf8x2x_gaelforce_mask.c` |
 
 Build with PlatformIO (ESP-IDF) for the ESP32-S3-DevKitC-1 with the N8R8 module. The shared `gflib` library (odometry, particle filter, link protocol) is not in either repo.
+
+Later commits are not part of the breadboard build. `f138950` (Sep 30) moved the pins, `5a9fc94` (Oct 1) fixed the ToF mask download order and added a ToF bench test, and the V2 PCB rework came after that.
 
 ## How it differs from section 1
 
