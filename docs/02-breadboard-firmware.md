@@ -2,6 +2,10 @@
 
 When the parts arrived, we wired every component from section 1 onto a breadboard and flashed one firmware image to the ESP32-S3.
 
+![The breadboard: an ESP32-S3 dev board in the centre, a level converter and the BNO085 across the top, and ToF sensors on Qwiic cables off the right edge](img/02-breadboard-photo.jpg)
+
+The breadboard build. The ToF sensors sit off the board on their Qwiic cables.
+
 ## What it does
 
 The firmware reads the two AMT102-V encoders (through the level converter), the BNO085 IMU, and the four TMF8821 ToF sensors. It runs a 300-particle Monte Carlo localization filter and sends the resulting pose to the V5 brain over RS-485 every 10 ms (100 Hz). The brain replies with its status, and the pod uses that reply to measure round-trip time and to stop trusting ToF readings while the robot is driving hard. The pod drives nothing. It only reports pose.
@@ -63,6 +67,12 @@ Four TMF8821s on one Qwiic chain, each with its own enable wire (front, right, l
 ![ESP32-S3 to SP3485 transceiver to the V5 smart port, with board notes on termination and bias](img/02-rs485-wiring.jpg)
 
 The ESP32's UART drives an SP3485 transceiver, which connects to the V5 smart port's two differential lines. The 5 V line on the smart port is not connected, but the cable ground is, because RS-485 needs the common reference.
+
+### Working on it
+
+[![Firmware console output on the laptop beside the breadboard](img/02-breadboard-bringup-thumb.jpg)](media/02-breadboard-bringup.mp4)
+
+A 5-second clip of the breadboard being worked on, with the firmware's console output on the laptop. Click the image to play it.
 
 ## Key settings
 
