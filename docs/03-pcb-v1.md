@@ -22,7 +22,7 @@ Copying the breadboard exactly turned out not to be the right way to get a PCB. 
 
 ## What worked
 
-The board worked. The ToF sensors and the rest of the pod ran the V1 firmware. There was one layout mistake: the IMU's ground was put on the wrong layer.
+The board worked. The ToF sensors and the rest of the pod ran the V1 firmware. There was one layout mistake: the ground trace for the IMU was on the top layer when it should have been on the bottom. V2 fixes it.
 
 ## The V1 firmware
 

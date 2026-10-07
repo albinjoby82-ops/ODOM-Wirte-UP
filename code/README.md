@@ -6,9 +6,9 @@ The pod's ESP32-S3 firmware at three points in the project. Each folder is an ex
 |---|---|---|---|
 | [`breadboard/`](breadboard/) | The breadboard build | `f9613c0` (Sep 12) | Ronan Hawkins |
 | [`pcb-v1/`](pcb-v1/) | PCB V1 | `f138950` (Sep 30) | Ronan Hawkins |
-| [`pcb-v2/`](pcb-v2/) | PCB V2 | `d8f95ed` (Oct 6) | Ronan Hawkins and Albin Joby |
+| [`pcb-v2/`](pcb-v2/) | PCB V2 | `986a2f3` (Oct 6) | Ronan Hawkins and Albin Joby |
 
-The commits are from [`ODOM-CODE`](https://github.com/albinjoby82-ops/ODOM-CODE), which has the same history as Ronan's [`gaelforce_esp32`](https://github.com/ronanhawkins/gaelforce_esp32). The V2 snapshot is the head of [pull request 1](https://github.com/ronanhawkins/gaelforce_esp32/pull/1). It has not been tested on a built V2 board.
+The commits are from [`ODOM-CODE`](https://github.com/albinjoby82-ops/ODOM-CODE), which has the same history as Ronan's [`gaelforce_esp32`](https://github.com/ronanhawkins/gaelforce_esp32). The V2 snapshot is the latest commit in `ODOM-CODE`. [Pull request 1](https://github.com/ronanhawkins/gaelforce_esp32/pull/1) holds the same work up to `d8f95ed`. V2 has not been tested on a built board.
 
 What changed between them is mostly the pin numbers in `include/pod_config.hpp`. The V1 and V2 firmware are not interchangeable, so flash each one only on its own board.
 
