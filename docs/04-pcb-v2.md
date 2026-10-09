@@ -36,3 +36,21 @@ V1 and V2 firmware are not interchangeable. GPIO 1, 2 and 4 were encoder inputs 
 ## Status
 
 V2 has been sent to the Elecworkshop to be made. It has not been built or tested yet, so there are no results here.
+
+## Design files
+
+![A 3D render of the V2 board from KiCad: a tall green board with the IMU breakout outline at the top, the ESP32-S3 outline in the middle, four resistors and the level converter below it, and rows of single-pin connectors at the bottom and along the sides](img/04-pcb-v2-3d.png)
+
+A 3D render of the V2 board from KiCad. The board is long and narrow. The IMU breakout is at the top, the ESP32-S3 is in the middle, and the four resistors and the level converter are below it. The ESP32-S3 and the IMU show only as outlines, because their 3D models are not in the project.
+
+[![The V2 board layout in KiCad, front copper in red and back copper in blue, with traces running from the ESP32-S3 pins to single-pin connectors at the bottom and along the sides](img/04-pcb-v2-layout.png)](../hardware/v2/ODOM-V2-pcb-layout.pdf)
+
+The V2 board layout, from the KiCad PCB editor. Front copper is red and back copper is blue. Most of the back copper runs under the ESP32-S3 and ends at connector groups at the bottom of the board. Click the image for the PDF.
+
+[![The V2 schematic: the ESP32-S3 dev board, the IMU breakout, the level converter with four resistors, and a column of single-pin connectors on the right](img/04-pcb-v2-schematic.png)](../hardware/v2/ODOM-V2-schematic.pdf)
+
+The V2 schematic. It has the ESP32-S3 dev board, the IMU breakout, the level converter and four resistors, and a single-pin connector for each off-board wire. Click the image for the PDF.
+
+- [Schematic (PDF)](../hardware/v2/ODOM-V2-schematic.pdf)
+- [PCB layout (PDF)](../hardware/v2/ODOM-V2-pcb-layout.pdf)
+- [KiCad project folder](../hardware/v2/): the schematic, board file, project file and custom symbol and footprint libraries.
