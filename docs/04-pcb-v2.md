@@ -45,7 +45,7 @@ A 3D render of the V2 board from KiCad. The board is long and narrow. The IMU br
 
 [![The V2 board layout in KiCad, front copper in red and back copper in blue, with traces running from the ESP32-S3 pins to single-pin connectors at the bottom and along the sides](img/04-pcb-v2-layout.png)](../hardware/v2/ODOM-V2-pcb-layout.pdf)
 
-The V2 board layout, from the KiCad PCB editor. Front copper is red and back copper is blue. Most of the back copper runs under the ESP32-S3 and ends at connector groups at the bottom of the board. Click the image for the PDF.
+The V2 board layout, from the KiCad PCB editor. Front copper is red and back copper is blue. Traces run from the ESP32-S3 pins and the level converter to the single-pin connectors at the bottom and along the sides. Click the image for the PDF.
 
 [![The V2 schematic: the ESP32-S3 dev board, the IMU breakout, the level converter with four resistors, and a column of single-pin connectors on the right](img/04-pcb-v2-schematic.png)](../hardware/v2/ODOM-V2-schematic.pdf)
 
