@@ -35,7 +35,11 @@ V1 and V2 firmware are not interchangeable. GPIO 1, 2 and 4 were encoder inputs 
 
 ![The bare V2 board, a tall narrow green board with white copper traces and silkscreen labels such as 5V, GND, B4 and B3 along the bottom](img/04-pcb-v2-board.jpg)
 
-The V2 board right after it came off the machine at the Elecworkshop. The parts are not soldered on yet, and it has not been tested, so there are no results here.
+The V2 board right after it came off the machine at the Elecworkshop.
+
+![Two people soldering parts onto a V2 board held on a breadboard strip, one holding a part in place and the other using a soldering iron](img/04-pcb-v2-soldering.jpg)
+
+Soldering the V2 board with Selma. It has not been tested yet, so there are no results here.
 
 ## Design files
 

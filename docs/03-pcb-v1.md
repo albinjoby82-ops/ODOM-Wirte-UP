@@ -12,10 +12,6 @@ The bare V1 board, copper side.
 
 Soldering the V1 board.
 
-![Two people soldering parts onto a V1 board held on a breadboard strip, one holding a part in place and the other using a soldering iron](img/03-pcb-v1-soldering-2.jpg)
-
-Soldering the V1 boards with Selma.
-
 ## What went wrong
 
 On a breadboard, any signal can go to any pin, because you just plug in a jumper wire. On a PCB that freedom is gone, and the wiring that matters is the wiring that leaves the board. Both encoders and all four ToF sensors connect to the pod by cables, so every one of those cables had to leave the board somewhere.
