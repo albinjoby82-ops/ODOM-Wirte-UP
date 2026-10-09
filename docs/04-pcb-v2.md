@@ -1,12 +1,10 @@
 # PCB V2
 
-V2 fixes what went wrong with V1. It has three changes: a fixed IMU ground, a much smaller board, and a pin map that follows where the cables leave the board.
+V2 fixes what went wrong with V1. It has two changes: a fixed IMU ground, and a pin map that follows where the cables leave the board.
 
 ## What changed
 
 **The IMU ground.** On V1, the ground trace for the IMU was on the top layer when it should have been on the bottom. V2 has it on the bottom layer.
-
-**The size.** V2 is about 60% smaller than V1. On V1 the copper was routed over the top of the ESP32, which took a lot of board. On V2 it is routed underneath the ESP32 instead.
 
 **The pins.** V1 kept the breadboard's pin numbers, which left the encoder and ToF cables scattered around the board. V2 regroups the pins so each set of cables leaves from one place. Eight pins moved. Everything else is the same.
 
