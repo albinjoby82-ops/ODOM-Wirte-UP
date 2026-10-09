@@ -39,7 +39,7 @@ The V2 board right after it came off the machine at the Elecworkshop.
 
 ![Two people soldering parts onto a V2 board held on a breadboard strip, one holding a part in place and the other using a soldering iron](img/04-pcb-v2-soldering.jpg)
 
-Soldering the V2 board with Selma. It has not been tested yet, so there are no results here.
+Soldering the V2 board with Selma. The board is now soldered and finished. It is waiting to be tested, so there are no results here.
 
 ## Design files
 

@@ -11,7 +11,7 @@ This repo holds the narrative write-up. The operations team will turn it into a 
 | 1 | [Why These Components](docs/01-component-rationale.md) | Done |
 | 2 | [What We Built on the Breadboard](docs/02-breadboard-firmware.md) | Done |
 | 3 | [PCB V1](docs/03-pcb-v1.md) | Done |
-| 4 | [PCB V2](docs/04-pcb-v2.md) | Draft |
+| 4 | [PCB V2](docs/04-pcb-v2.md) | Done |
 
 More sections will be added to this table as the story grows.
 
