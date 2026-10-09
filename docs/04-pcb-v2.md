@@ -53,4 +53,5 @@ The V2 schematic. It has the ESP32-S3 dev board, the IMU breakout, the level con
 
 - [Schematic (PDF)](../hardware/v2/ODOM-V2-schematic.pdf)
 - [PCB layout (PDF)](../hardware/v2/ODOM-V2-pcb-layout.pdf)
+- [Gerbers and drill files](../hardware/v2/gerbers.zip), as sent to the board maker. The [job file](../hardware/v2/ODOM%20V2-job.gbrjob) is next to it.
 - [KiCad project folder](../hardware/v2/): the schematic, board file, project file and custom symbol and footprint libraries.
