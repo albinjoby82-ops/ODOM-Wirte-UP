@@ -1,10 +1,10 @@
 # PCB V2
 
-V2 fixes what went wrong with V1. It has two changes: a fixed IMU ground, and a pin map that follows where the cables leave the board.
+V2 was meant to fix what went wrong with V1. It has two changes: a fixed IMU ground, and a pin map that follows where the cables leave the board. Bench testing on 12 October showed that V2 has its own layout mistakes, listed under [What went wrong](#what-went-wrong).
 
 ## What changed
 
-**The IMU ground.** On V1, the ground trace for the IMU was on the top layer when it should have been on the bottom. V2 has it on the bottom layer.
+**The IMU ground.** On V1, the ground trace for the IMU was on the top layer when it should have been on the bottom. V2 was meant to have it on the bottom layer. Testing showed that this fix did not work: on the built V2 board the IMU has no ground connection at all (see below).
 
 **The pins.** V1 kept the breadboard's pin numbers, which left the encoder and ToF cables scattered around the board. V2 regroups the pins so each set of cables leaves from one place. Eight pins moved. Everything else is the same.
 
@@ -39,7 +39,21 @@ The V2 board right after it came off the machine at the Elecworkshop.
 
 ![Two people soldering parts onto a V2 board held on a breadboard strip, one holding a part in place and the other using a soldering iron](img/04-pcb-v2-soldering.jpg)
 
-Soldering the V2 board with Selma. The board is now soldered and finished. It is waiting to be tested, so there are no results here.
+Soldering the V2 board with Selma. The board was soldered and finished, then tested on 12 October. It does not work yet. The three problems below have to be fixed first, and the fixes are planned for the Wednesday team meeting.
+
+## What went wrong
+
+Debugging the V2 board took about two hours. The pin map did its job, but the board has three layout mistakes.
+
+**1. The IMU ground does not exist.** The ground connection for the IMU is missing from the board. V1 had this ground on the wrong layer, and the V2 change did not fix it. Without a ground, the IMU cannot work.
+
+**2. The ground for ToF sensors 1 and 3 is on the wrong layer.** The ground for these two sensors is on the wrong layer, which is the same kind of mistake as the V1 IMU ground. The wire to ToF 3 also broke during testing, so it has to be re-done as part of the fix.
+
+**3. Encoder B does not have enough through holes.** The Encoder B connections need more through holes than the board has.
+
+## What it taught us
+
+All three faults are layer and connection mistakes that the layout looked right for, and none of them is a pin-map problem. V1 had one such mistake (the IMU ground on the wrong layer) and V2 has three, including that same ground again. Checking each ground net against the layers in the board editor, and checking every net for a complete connection, should be done before the next set of Gerbers is sent.
 
 ## Design files
 
